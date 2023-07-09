@@ -4,7 +4,7 @@ let ts = 0;
 seg = 0;
 var nivel = 0;
 var ponto= 0;
-var brnv = 0;
+var brnv = 500;
 let borda = 465;
 let corA, corB, corC;
 let tela  = 1//----------------------------------------------
@@ -230,7 +230,7 @@ fundo[25] = loadImage("fundo/26.png");
 function setup() {
   createCanvas(1024, 768);
   frameRate (30);
-  son6.setVolume(0.01);
+  son6.setVolume(0.05);
    son6.play();
 }
 
@@ -434,6 +434,7 @@ if ( inimX < 0){
       nivel = nivel + 1;
       brnv = brnv + 500;
       tela = tela +1;
+      son4.play();
     }
   
     // texto do relogio:
@@ -560,6 +561,7 @@ if ( inimX < 0){
        nivel = nivel + 1;
         brnv = brnv + 100;
         tela++;
+        son4.play();
     }
     
     // texto do relogio e sua função logica:
