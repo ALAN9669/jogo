@@ -7,7 +7,7 @@ var ponto= 0;
 var brnv = 0;
 let borda = 465;
 let corA, corB, corC;
-let tela  = 1//----------------------------------------------
+let tela  = 6//----------------------------------------------
 let movX = 1;
 let movY = 550;
 var cena;
@@ -42,6 +42,7 @@ var botaoESC= [];
 var inimigo = [];
 var icone = [];
 var fundo = [];
+var bc = [];
 final = [];
 tx1 =1000;
 tx2 =1100;
@@ -146,11 +147,36 @@ function preload() {
   icone [5] = loadImage ("icone/6.png");
   icone [6] = loadImage ("icone/7.png");
 
-  fundo [0] = loadImage ("fundo/1.png");
-  fundo [1] = loadImage ("fundo/2.png");
-  fundo [3] = loadImage ("fundo/10.png");
-  fundo [2] = loadImage ("fundo/3.png");
-  fundo [4] = loadImage ("fundo/4.png");
+fundo[0] = loadImage("fundo/1.png");
+fundo[1] = loadImage("fundo/2.png");
+fundo[2] = loadImage("fundo/3.png");
+fundo[3] = loadImage("fundo/4.png");
+fundo[4] = loadImage("fundo/5.png");
+fundo[5] = loadImage("fundo/6.png");
+fundo[6] = loadImage("fundo/7.png");
+fundo[7] = loadImage("fundo/8.png");
+fundo[8] = loadImage("fundo/9.png");
+fundo[9] = loadImage("fundo/10.png");
+fundo[10] = loadImage("fundo/11.png");
+fundo[11] = loadImage("fundo/12.png");
+fundo[12] = loadImage("fundo/13.png");
+fundo[13] = loadImage("fundo/14.png");
+fundo[14] = loadImage("fundo/15.png");
+fundo[15] = loadImage("fundo/16.png");
+fundo[16] = loadImage("fundo/17.png");
+fundo[17] = loadImage("fundo/18.png");
+fundo[18] = loadImage("fundo/19.png");
+fundo[19] = loadImage("fundo/20.png");
+fundo[20] = loadImage("fundo/21.png");
+fundo[21] = loadImage("fundo/22.png");
+fundo[22] = loadImage("fundo/23.png");
+fundo[23] = loadImage("fundo/24.png");
+fundo[24] = loadImage("fundo/25.png");
+fundo[25] = loadImage("fundo/26.png");
+
+
+
+
 
   final [0] = loadImage ("final/1.png");
   final [1] = loadImage ("final/2.png");
@@ -194,7 +220,7 @@ function draw() {
   
    createCanvas(1024, 768);
     
-    background(fundo[3]);
+    background(fundo[j+16]);
     
    
     // Definindo as cores das bordas
@@ -318,7 +344,7 @@ if ( inimX < 0){
   
     // cenario
     createCanvas(1024, 768);
-    background(fundo[0]);
+    background(fundo[j+16]);
   
     // colisao do boneco
   
@@ -428,10 +454,14 @@ if ( inimX < 0){
     tempo++;
     if (tempo > 5) {
       i++;
+      j++;
       tempo = 0;
     }
     if (i == 3) {
       i = 0;
+    }
+    if (j == 4) {
+      j = 0;
     }
   
     // gravidade
@@ -480,7 +510,7 @@ if ( inimX < 0){
     corC = random(237, 255);
     // cenario
     createCanvas(1024, 768);
-    background(fundo[1]);
+    background(fundo[j]);
 
    
 
@@ -566,7 +596,7 @@ if (dist (iconex, iconey,movX, movY,) < 50){
   
   }
 for (let obx = 0; obx < 1030; obx += 170) {
-  image(fundo[2], obx, 620, 200, 200);
+  image(fundo[20], obx, 620, 200, 200);
 }
 
 
@@ -669,8 +699,8 @@ if (movY > 560 || movY < 80 ) {
 
     
     // cenario
-    createCanvas(1024, 800);
-    background(cena1);
+    createCanvas(1100, 800);
+    background(fundo[23]);
 
     corA = random(100, 173);
     corB = random(149, 213);
@@ -688,13 +718,16 @@ if (movY > 560 || movY < 80 ) {
     
     text("parabens , final do jogo", 512, 200);
 
-    image(final[i], 100, 600, 100, 100);
-   image(final[i+3],250 , 600, 100, 100);
-   image(final[j+6], 400, 600, 100, 100);
-   image(final[i+10],550,600, 100, 100);
+    image(fundo[25],1,-250,1100,1100);
+
+   image(final[i+6],230 , 640, 100, 100);
+   image(final[i+3],450, 640, 100, 100);
+   image(final[i+10],350,640, 100, 100);
+   image(final[i+16],550, 640, 100, 100);
+   image(final[i+13],650,640, 100, 100);
+   image(final[i],750, 640, 100, 100);
+
   
-   image(final[i+16], 700, 600, 100, 100);
-   image(final[i+13],850,600, 100, 100);
 
 
    // tempo e contador
@@ -718,16 +751,16 @@ j = 0;
   //tela 3 informações*/
   else if (tela == 2){
     createCanvas(1024, 900);
-    background(cena3);
+    background(fundo [j+8]);
     corA = random(100, 173);
     corB = random(149, 213);
     corC = random(237, 255);
 
         stroke(corA, corB, corC);
         strokeWeight(3);
-        textSize(20);
+        textSize(21);
         textAlign(CENTER);
-        fill(250, 250, 250);
+        fill(0,0,0);
         textFont(fonte);
         text( "CONTROLE DO JOGO ",550,100 );
         text(
@@ -751,10 +784,14 @@ j = 0;
         
         if (tempo >9){
           i ++;
+          j ++;
             tempo = 0;
         if (i > 2 ){
              i = 0
-              }} 
+              }
+              if (j > 3 ){
+                j = 0
+                 }} 
         
         noFill();
         rect(500, 640, 50 +tempo ,50 +tempo);
