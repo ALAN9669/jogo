@@ -7,7 +7,7 @@ var ponto= 0;
 var brnv = 0;
 let borda = 465;
 let corA, corB, corC;
-let tela  = 6//----------------------------------------------
+let tela  = 1//----------------------------------------------
 let movX = 1;
 let movY = 550;
 var cena;
@@ -46,11 +46,28 @@ var bc = [];
 final = [];
 tx1 =1000;
 tx2 =1100;
+finaly =640;
+var son0,son1,son2,son3,son4,son5,son6,son7,son8,son9,son10;
+var tempoMusica = 0;
 
 
 
 
 function preload() {
+
+  son0 = loadSound('sons/1.wav');
+  son1 = loadSound('sons/2.wav');
+  son2 = loadSound('sons/3.wav');
+  son3 = loadSound('sons/4.wav');
+  son4 = loadSound('sons/5.wav');
+  son5 = loadSound('sons/6.wav');
+  son6 = loadSound('sons/7.wav');
+  son7 = loadSound('sons/8.wav');
+  son8 = loadSound('sons/9.wav');
+  son9 = loadSound('sons/10.wav');
+  son10 = loadSound('sons/11.wav');
+ 
+
   cena = loadImage("yoshi_s_island_by_sprits_d3k9jph.jpg");
   cena1 = loadImage("999574.png");
   cena2 = loadImage("7089128.jpg");
@@ -197,6 +214,10 @@ fundo[25] = loadImage("fundo/26.png");
   final [16] = loadImage ("final/17.png");
   final [17] = loadImage ("final/18.png");
   final [18] = loadImage ("final/19.png");
+  final [19] = loadImage ("final/20.png");
+  final [20] = loadImage ("final/21.png");
+  final [21] = loadImage ("final/22.png");
+
 
   
   
@@ -209,6 +230,8 @@ fundo[25] = loadImage("fundo/26.png");
 function setup() {
   createCanvas(1024, 768);
   frameRate (30);
+  son6.setVolume(0.01);
+   son6.play();
 }
 
 
@@ -282,6 +305,7 @@ if ( inimX < 0){
 }
       
 
+
       ghostX = ghostX + 1;
       if (ghostX === 601) {
       ghostX = 0;}
@@ -314,20 +338,24 @@ if ( inimX < 0){
         // borda dos botoes 
     if (mouseX >= 342 && mouseX <= 542 && mouseY >= 512 &&  mouseY <= 532
     ) { borda = 514;
+      
       if (mouseIsPressed){
         tela = 2
+        son5.play();
         // informações 
       }
     } else if (  mouseX >= 342 && mouseX <= 542 && mouseY >= 564 && mouseY <= 584
     ) {
       borda = 564;
       if (mouseIsPressed){
-        tela = 3 ;}
+        tela = 3 ;
+        son5.play();}
         // creditos
     } else if (  mouseX >= 342 && mouseX <= 542 && mouseY >= 484 && mouseY <= 504 ) {
         borda = 464;
         if (mouseIsPressed){
-          tela = 4 ;}
+          tela = 4 ;
+          son5.play();}
           // play
     }
    
@@ -356,6 +384,7 @@ if ( inimX < 0){
       nivel = 0;
       ponto = 0;
       relg = 0;
+      son3.play();
     } else {
       ponto = ponto;
     }
@@ -368,6 +397,7 @@ if ( inimX < 0){
       nivel = 0;
       ponto = 0;
       relg = 0;
+      son3.play();
     } else {
       ponto = ponto;
     }
@@ -380,6 +410,7 @@ if ( inimX < 0){
       nivel = 0;
       ponto = 0;
       relg = 0;
+      son3.play();
     } else {
       ponto = ponto;
     }
@@ -388,6 +419,7 @@ if ( inimX < 0){
       iconex = random(50, 999);
       iconey = random(350, 200);
       ponto += 100;
+      son0.play();
     } else {
       ponto = ponto;
     }
@@ -400,7 +432,7 @@ if ( inimX < 0){
   
     if (ponto > brnv) {
       nivel = nivel + 1;
-      brnv = brnv + 100;
+      brnv = brnv + 500;
       tela = tela +1;
     }
   
@@ -548,6 +580,7 @@ if (dist (inimX, inimY,movX, movY,) < 50){
    nivel = 0;
    ponto= 0;
    relg =0;
+   son3.play();
 
 }else {
     ponto = ponto
@@ -562,6 +595,7 @@ inim1X = random(100,999);
  nivel = 0;
  ponto= 0;
  relg =0;
+ son3.play();
 
 }else {
 ponto = ponto
@@ -577,6 +611,7 @@ tela = 1;
 nivel = 0;
 ponto= 0;
 relg =0;
+son3.play();
 
 }else {
 ponto = ponto
@@ -587,7 +622,7 @@ if (dist (iconex, iconey,movX, movY,) < 50){
 
   iconex = random(50,999);
   iconey= random(350,200);
-  
+  son0.play();
 
   ponto += 100;
   
@@ -673,6 +708,9 @@ if (movY > 560 || movY < 80 ) {
  if (keyIsDown(LEFT_ARROW)) {
     movX -= 5;
     marionv = marioNivel2E;
+   
+
+  
  } else {
    mario = mario;
  }
@@ -680,16 +718,19 @@ if (movY > 560 || movY < 80 ) {
  if (keyIsDown(RIGHT_ARROW)) {
    movX += 5;
    marionv = marioNivel2;
+ 
  } else {
    mario = mario;
  }
 
  if (keyIsDown(UP_ARROW)) {
    movY -= 5;
+   
  }
 
  if (keyIsDown(DOWN_ARROW)) {
    movY += 5;
+   
  }
    
 
@@ -720,12 +761,14 @@ if (movY > 560 || movY < 80 ) {
 
     image(fundo[25],1,-250,1100,1100);
 
-   image(final[i+6],230 , 640, 100, 100);
-   image(final[i+3],450, 640, 100, 100);
-   image(final[i+10],350,640, 100, 100);
-   image(final[i+16],550, 640, 100, 100);
-   image(final[i+13],650,640, 100, 100);
-   image(final[i],750, 640, 100, 100);
+   image(final[i+6],1000 ,640, 100, 100);
+   image(final[i+3],450, finaly, 100, 100);
+   image(final[i+10],920,640, 100, 100);
+   image(final[i+16],530, finaly, 100, 100);
+   image(final[i+13],660,finaly, 100, 100);
+   image(final[i],320, finaly, 100, 100);
+   image(final[i+16],240, finaly, 100, 100);
+   image(final[i+19],10, 640, 100, 100);
 
   
 
@@ -735,6 +778,7 @@ if (movY > 560 || movY < 80 ) {
   if (tempo > 6) {
    i++;
    j++;
+   finaly -=20;
     tempo = 0;
 }
  if (i === 3) {
@@ -744,6 +788,10 @@ if (j === 4) {
 j = 0;
   
 }
+if (finaly < 620) {
+  finaly = 640
+    
+  }
     
   }
 
@@ -841,11 +889,11 @@ j = 0;
   }
   // if para voltar ao menu
 
-  if (keyIsDown(ESCAPE)) {
+  if (keyIsPressed && key === 'Escape') {
     tela = 1;
     nivel = 0;
     ponto = 0;
     relg = 0;
-    ;}
-  
-    }
+
+   
+  }}
