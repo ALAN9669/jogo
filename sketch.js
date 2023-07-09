@@ -333,10 +333,10 @@ if ( inimX < 0){
     strokeWeight(4);
     rect(390, borda, 240, 40, 10);
 
-    
+
 
         // borda dos botoes 
-    if (mouseX >= 342 && mouseX <= 542 && mouseY >= 512 &&  mouseY <= 532
+    if (mouseX >= 342 && mouseX <= 650 && mouseY >= 500 &&  mouseY <= 560
     ) { borda = 514;
       
       if (mouseIsPressed){
@@ -344,14 +344,14 @@ if ( inimX < 0){
         son5.play();
         // informações 
       }
-    } else if (  mouseX >= 342 && mouseX <= 542 && mouseY >= 564 && mouseY <= 584
+    } else if (  mouseX >= 342 && mouseX <= 650 && mouseY >= 565 && mouseY <= 625
     ) {
       borda = 564;
       if (mouseIsPressed){
         tela = 3 ;
         son5.play();}
         // creditos
-    } else if (  mouseX >= 342 && mouseX <= 542 && mouseY >= 484 && mouseY <= 504 ) {
+    } else if (  mouseX >= 342 && mouseX <= 650 && mouseY >= 435 && mouseY <= 495) {
         borda = 464;
         if (mouseIsPressed){
           tela = 4 ;
