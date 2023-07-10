@@ -4,10 +4,10 @@ let ts = 0;
 seg = 0;
 var nivel = 0;
 var ponto= 0;
-var brnv = 0;
+var brnv = 200;
 let borda = 465;
 let corA, corB, corC;
-let tela  = 1//----------------------------------------------
+let tela  = 5//----------------------------------------------
 let movX = 1;
 let movY = 550;
 var cena;
@@ -42,14 +42,32 @@ var botaoESC= [];
 var inimigo = [];
 var icone = [];
 var fundo = [];
+var bc = [];
 final = [];
-tx1 =1000;
+tx1 =800;
 tx2 =1100;
+finaly =640;
+var son0,son1,son2,son3,son4,son5,son6,son7,son8,son9,son10;
+var tempoMusica = 0;
 
 
 
 
 function preload() {
+
+  son0 = loadSound('sons/1.wav');
+  son1 = loadSound('sons/2.wav');
+  son2 = loadSound('sons/3.wav');
+  son3 = loadSound('sons/4.wav');
+  son4 = loadSound('sons/5.wav');
+  son5 = loadSound('sons/6.wav');
+  son6 = loadSound('sons/7.wav');
+  son7 = loadSound('sons/8.wav');
+  son8 = loadSound('sons/9.wav');
+  son9 = loadSound('sons/10.wav');
+  son10 = loadSound('sons/11.wav');
+ 
+
   cena = loadImage("yoshi_s_island_by_sprits_d3k9jph.jpg");
   cena1 = loadImage("999574.png");
   cena2 = loadImage("7089128.jpg");
@@ -146,11 +164,36 @@ function preload() {
   icone [5] = loadImage ("icone/6.png");
   icone [6] = loadImage ("icone/7.png");
 
-  fundo [0] = loadImage ("fundo/1.png");
-  fundo [1] = loadImage ("fundo/2.png");
-  fundo [3] = loadImage ("fundo/10.png");
-  fundo [2] = loadImage ("fundo/3.png");
-  fundo [4] = loadImage ("fundo/4.png");
+fundo[0] = loadImage("fundo/1.png");
+fundo[1] = loadImage("fundo/2.png");
+fundo[2] = loadImage("fundo/3.png");
+fundo[3] = loadImage("fundo/4.png");
+fundo[4] = loadImage("fundo/5.png");
+fundo[5] = loadImage("fundo/6.png");
+fundo[6] = loadImage("fundo/7.png");
+fundo[7] = loadImage("fundo/8.png");
+fundo[8] = loadImage("fundo/9.png");
+fundo[9] = loadImage("fundo/10.png");
+fundo[10] = loadImage("fundo/11.png");
+fundo[11] = loadImage("fundo/12.png");
+fundo[12] = loadImage("fundo/13.png");
+fundo[13] = loadImage("fundo/14.png");
+fundo[14] = loadImage("fundo/15.png");
+fundo[15] = loadImage("fundo/16.png");
+fundo[16] = loadImage("fundo/17.png");
+fundo[17] = loadImage("fundo/18.png");
+fundo[18] = loadImage("fundo/19.png");
+fundo[19] = loadImage("fundo/20.png");
+fundo[20] = loadImage("fundo/21.png");
+fundo[21] = loadImage("fundo/22.png");
+fundo[22] = loadImage("fundo/23.png");
+fundo[23] = loadImage("fundo/24.png");
+fundo[24] = loadImage("fundo/25.png");
+fundo[25] = loadImage("fundo/26.png");
+
+
+
+
 
   final [0] = loadImage ("final/1.png");
   final [1] = loadImage ("final/2.png");
@@ -171,6 +214,10 @@ function preload() {
   final [16] = loadImage ("final/17.png");
   final [17] = loadImage ("final/18.png");
   final [18] = loadImage ("final/19.png");
+  final [19] = loadImage ("final/20.png");
+  final [20] = loadImage ("final/21.png");
+  final [21] = loadImage ("final/22.png");
+
 
   
   
@@ -183,6 +230,8 @@ function preload() {
 function setup() {
   createCanvas(1024, 768);
   frameRate (30);
+  son6.setVolume(0.05);
+   son6.play();
 }
 
 
@@ -194,7 +243,7 @@ function draw() {
   
    createCanvas(1024, 768);
     
-    background(fundo[3]);
+    background(fundo[j+16]);
     
    
     // Definindo as cores das bordas
@@ -256,6 +305,7 @@ if ( inimX < 0){
 }
       
 
+
       ghostX = ghostX + 1;
       if (ghostX === 601) {
       ghostX = 0;}
@@ -283,25 +333,29 @@ if ( inimX < 0){
     strokeWeight(4);
     rect(390, borda, 240, 40, 10);
 
-    
+
 
         // borda dos botoes 
-    if (mouseX >= 342 && mouseX <= 542 && mouseY >= 512 &&  mouseY <= 532
+    if (mouseX >= 342 && mouseX <= 650 && mouseY >= 500 &&  mouseY <= 560
     ) { borda = 514;
+      
       if (mouseIsPressed){
         tela = 2
+        son5.play();
         // informações 
       }
-    } else if (  mouseX >= 342 && mouseX <= 542 && mouseY >= 564 && mouseY <= 584
+    } else if (  mouseX >= 342 && mouseX <= 650 && mouseY >= 565 && mouseY <= 625
     ) {
       borda = 564;
       if (mouseIsPressed){
-        tela = 3 ;}
+        tela = 3 ;
+        son5.play();}
         // creditos
-    } else if (  mouseX >= 342 && mouseX <= 542 && mouseY >= 484 && mouseY <= 504 ) {
+    } else if (  mouseX >= 342 && mouseX <= 650 && mouseY >= 435 && mouseY <= 495) {
         borda = 464;
         if (mouseIsPressed){
-          tela = 4 ;}
+          tela = 4 ;
+          son5.play();}
           // play
     }
    
@@ -318,7 +372,7 @@ if ( inimX < 0){
   
     // cenario
     createCanvas(1024, 768);
-    background(fundo[0]);
+    background(fundo[j+16]);
   
     // colisao do boneco
   
@@ -330,6 +384,7 @@ if ( inimX < 0){
       nivel = 0;
       ponto = 0;
       relg = 0;
+      son3.play();
     } else {
       ponto = ponto;
     }
@@ -342,6 +397,7 @@ if ( inimX < 0){
       nivel = 0;
       ponto = 0;
       relg = 0;
+      son3.play();
     } else {
       ponto = ponto;
     }
@@ -354,6 +410,7 @@ if ( inimX < 0){
       nivel = 0;
       ponto = 0;
       relg = 0;
+      son3.play();
     } else {
       ponto = ponto;
     }
@@ -362,6 +419,7 @@ if ( inimX < 0){
       iconex = random(50, 999);
       iconey = random(350, 200);
       ponto += 100;
+      son0.play();
     } else {
       ponto = ponto;
     }
@@ -374,8 +432,9 @@ if ( inimX < 0){
   
     if (ponto > brnv) {
       nivel = nivel + 1;
-      brnv = brnv + 100;
+      brnv = brnv + 500;
       tela = tela +1;
+      son4.play();
     }
   
     // texto do relogio:
@@ -428,10 +487,14 @@ if ( inimX < 0){
     tempo++;
     if (tempo > 5) {
       i++;
+      j++;
       tempo = 0;
     }
     if (i == 3) {
       i = 0;
+    }
+    if (j == 4) {
+      j = 0;
     }
   
     // gravidade
@@ -480,7 +543,7 @@ if ( inimX < 0){
     corC = random(237, 255);
     // cenario
     createCanvas(1024, 768);
-    background(fundo[1]);
+    background(fundo[j]);
 
    
 
@@ -498,6 +561,7 @@ if ( inimX < 0){
        nivel = nivel + 1;
         brnv = brnv + 100;
         tela++;
+        son4.play();
     }
     
     // texto do relogio e sua função logica:
@@ -518,6 +582,7 @@ if (dist (inimX, inimY,movX, movY,) < 50){
    nivel = 0;
    ponto= 0;
    relg =0;
+   son3.play();
 
 }else {
     ponto = ponto
@@ -532,6 +597,7 @@ inim1X = random(100,999);
  nivel = 0;
  ponto= 0;
  relg =0;
+ son3.play();
 
 }else {
 ponto = ponto
@@ -547,6 +613,7 @@ tela = 1;
 nivel = 0;
 ponto= 0;
 relg =0;
+son3.play();
 
 }else {
 ponto = ponto
@@ -557,7 +624,7 @@ if (dist (iconex, iconey,movX, movY,) < 50){
 
   iconex = random(50,999);
   iconey= random(350,200);
-  
+  son0.play();
 
   ponto += 100;
   
@@ -566,7 +633,7 @@ if (dist (iconex, iconey,movX, movY,) < 50){
   
   }
 for (let obx = 0; obx < 1030; obx += 170) {
-  image(fundo[2], obx, 620, 200, 200);
+  image(fundo[20], obx, 620, 200, 200);
 }
 
 
@@ -643,6 +710,9 @@ if (movY > 560 || movY < 80 ) {
  if (keyIsDown(LEFT_ARROW)) {
     movX -= 5;
     marionv = marioNivel2E;
+   
+
+  
  } else {
    mario = mario;
  }
@@ -650,16 +720,19 @@ if (movY > 560 || movY < 80 ) {
  if (keyIsDown(RIGHT_ARROW)) {
    movX += 5;
    marionv = marioNivel2;
+ 
  } else {
    mario = mario;
  }
 
  if (keyIsDown(UP_ARROW)) {
    movY -= 5;
+   
  }
 
  if (keyIsDown(DOWN_ARROW)) {
    movY += 5;
+   
  }
    
 
@@ -669,15 +742,15 @@ if (movY > 560 || movY < 80 ) {
 
     
     // cenario
-    createCanvas(1024, 800);
-    background(cena1);
+    createCanvas(1100, 800);
+    background(fundo[23]);
 
     corA = random(100, 173);
     corB = random(149, 213);
     corC = random(237, 255);
 
  stroke(corA, corB, corC);
-    strokeWeight(3);
+    strokeWeight(4);
     textSize(28);
     textAlign(CENTER);
     fill(255, 250, 250);
@@ -688,13 +761,18 @@ if (movY > 560 || movY < 80 ) {
     
     text("parabens , final do jogo", 512, 200);
 
-    image(final[i], 100, 600, 100, 100);
-   image(final[i+3],250 , 600, 100, 100);
-   image(final[j+6], 400, 600, 100, 100);
-   image(final[i+10],550,600, 100, 100);
+    image(fundo[25],1,-250,1100,1100);
+
+   image(final[i+6],1000 ,640, 100, 100);
+   image(final[i+3],450, finaly, 100, 100);
+   image(final[i+10],920,640, 100, 100);
+   image(final[i+16],530, finaly, 100, 100);
+   image(final[i+13],660,finaly, 100, 100);
+   image(final[i],320, finaly, 100, 100);
+   image(final[i+16],240, finaly, 100, 100);
+   image(final[i+19],10, 640, 100, 100);
+
   
-   image(final[i+16], 700, 600, 100, 100);
-   image(final[i+13],850,600, 100, 100);
 
 
    // tempo e contador
@@ -702,6 +780,7 @@ if (movY > 560 || movY < 80 ) {
   if (tempo > 6) {
    i++;
    j++;
+   finaly -=20;
     tempo = 0;
 }
  if (i === 3) {
@@ -711,6 +790,10 @@ if (j === 4) {
 j = 0;
   
 }
+if (finaly < 620) {
+  finaly = 640
+    
+  }
     
   }
 
@@ -718,16 +801,16 @@ j = 0;
   //tela 3 informações*/
   else if (tela == 2){
     createCanvas(1024, 900);
-    background(cena3);
+    background(fundo [j+8]);
     corA = random(100, 173);
     corB = random(149, 213);
     corC = random(237, 255);
 
         stroke(corA, corB, corC);
         strokeWeight(3);
-        textSize(20);
+        textSize(21);
         textAlign(CENTER);
-        fill(250, 250, 250);
+        fill(0,0,0);
         textFont(fonte);
         text( "CONTROLE DO JOGO ",550,100 );
         text(
@@ -751,10 +834,14 @@ j = 0;
         
         if (tempo >9){
           i ++;
+          j ++;
             tempo = 0;
         if (i > 2 ){
              i = 0
-              }} 
+              }
+              if (j > 3 ){
+                j = 0
+                 }} 
         
         noFill();
         rect(500, 640, 50 +tempo ,50 +tempo);
@@ -791,12 +878,12 @@ j = 0;
        
         
         if (tx1 > -450){
-        tx1--;
+        tx1-= 2;
       }else {
         tx1 = 1000;
       }
         if (tx2 > -350){
-        tx2 --;
+        tx2 -= 2;
       }else {
         tx2 = 1100;
       }
@@ -804,11 +891,11 @@ j = 0;
   }
   // if para voltar ao menu
 
-  if (keyIsDown(ESCAPE)) {
+  if (keyIsPressed && key === 'Escape') {
     tela = 1;
     nivel = 0;
     ponto = 0;
     relg = 0;
-    ;}
-  
-    }
+
+   
+  }}
