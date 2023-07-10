@@ -4,10 +4,10 @@ let ts = 0;
 seg = 0;
 var nivel = 0;
 var ponto= 0;
-var brnv = 500;
+var brnv = 200;
 let borda = 465;
 let corA, corB, corC;
-let tela  = 1//----------------------------------------------
+let tela  = 5//----------------------------------------------
 let movX = 1;
 let movY = 550;
 var cena;
@@ -44,7 +44,7 @@ var icone = [];
 var fundo = [];
 var bc = [];
 final = [];
-tx1 =1000;
+tx1 =800;
 tx2 =1100;
 finaly =640;
 var son0,son1,son2,son3,son4,son5,son6,son7,son8,son9,son10;
@@ -750,7 +750,7 @@ if (movY > 560 || movY < 80 ) {
     corC = random(237, 255);
 
  stroke(corA, corB, corC);
-    strokeWeight(3);
+    strokeWeight(4);
     textSize(28);
     textAlign(CENTER);
     fill(255, 250, 250);
@@ -878,12 +878,12 @@ if (finaly < 620) {
        
         
         if (tx1 > -450){
-        tx1--;
+        tx1-= 2;
       }else {
         tx1 = 1000;
       }
         if (tx2 > -350){
-        tx2 --;
+        tx2 -= 2;
       }else {
         tx2 = 1100;
       }
